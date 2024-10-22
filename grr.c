@@ -27,7 +27,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         {
             MessageBox(NULL, lpFont[i], L"Failed to load font", MB_OK | MB_ICONERROR);
             goto removefont;
-            return i;
         }
         SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
         ++countLoad;
