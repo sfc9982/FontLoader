@@ -29,20 +29,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             goto removefont;
             return i;
         }
-        /* SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); */
+        SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
         ++countLoad;
     }
-    /* SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); */
+    SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
     wsprintfW(message, L"%d fonts loaded successfully.", countLoad);
     MessageBox(NULL, L"Close this box to unload fonts.", message, MB_OK | MB_ICONINFORMATION);
 removefont:
-    /* SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); */
+    SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
     for (i = 1; i < argc; ++i)
     {
         RemoveFontResource(lpFont[i]);
-        /* SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); */
+        SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
     }
-    /* SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); */
+    SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
 
     return 0;
 }
